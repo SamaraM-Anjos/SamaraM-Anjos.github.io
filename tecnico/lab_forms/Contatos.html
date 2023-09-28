@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contatos</title>
+</head>
+<body>
+    <section>
+        <h3>Fundamentos da Web</h3>
+        <p>Exercícios</p>
+    </section>
+
+    <div id="retangulocinza2">
+        <a href="/index.html">Retornar</a>
+    </div>
+
+    <main>
+        <h2>Contatos</h2>
+    </main>
+    <fieldset>
+        <legend>Entre em contato conosco</legend>
+        <div>
+            <form method="POST" action="http://httpbin.org/post">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" placeholder="Digite seu nome">
+                <br><br>
+                <label for="Assunto">Assunto</label>
+                <input type="text" name="Assunto" id="Assunto" placeholder="Digite o assunto">
+                <br><br>
+                <label for="Data">Data da ocorrência</label>
+                <input type="date" name="Data" id="Data">
+                <br><br>
+                <label for="Foto">Foto da ocorrência</label>
+                <input type="file" name="Foto" id="Foto">
+                <br><br>
+                <label for="Telefone">Telefone</label>
+                <input type="tel" name="Telefone" id="Telefone" placeholder="Digite seu telefone">
+                <br><br>
+                <label for="Email">Email</label>
+                <input type="text" name="Email" id="Email">
+                <br><br>
+                <label for="Mensagem">Mensagem</label>
+                <textarea placeholder="Digite sua mensagem"></textarea>
+                <br><br>
+                <label for="Estilo">Estilo</label>
+                <select name="Estilo" id="Selecao">
+                    <option value="01">Acadêmico</option>
+                    <option value="02">Romance</option>
+                    <option value="03">Ficção</option>
+                </select>
+                <br><br><br>
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+            </form>
+    </div>
+    </fieldset>
+</body>
+</html>
