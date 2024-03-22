@@ -401,13 +401,6 @@ btn02.addEventListener("click", () => {
  */
 
 const lancadorDados = () => Math.ceil(Math.random()*6)
-const ocorrencia1 = () => parseFloat(document.querySelector("#q02-peso").value)
-const ocorrencia2 = () => parseFloat(document.querySelector("#q02-peso").value)
-const ocorrencia3 = () => parseFloat(document.querySelector("#q02-peso").value)
-const ocorrencia4 = () => parseFloat(document.querySelector("#q02-peso").value)
-const ocorrencia5 = () => parseFloat(document.querySelector("#q02-peso").value)
-const ocorrencia6 = () => parseFloat(document.querySelector("#q02-peso").value)
-
 
 btn03.addEventListener("click", () => {
     let lances = [0,0,0,0,0,0] //6 faces do dado 
@@ -425,7 +418,6 @@ btn03.addEventListener("click", () => {
         // contabilize os lances
     }
     // a frequencia é total de #face/total de lancamentos
-    const oc1 = document.querySelector("face-ocorr-1")
     lances[0] = lances[0]/1000000;
     lances[1] = lances[1]/1000000;
     lances[2] = lances[2]/1000000;
@@ -434,7 +426,35 @@ btn03.addEventListener("click", () => {
     lances[5] = lances[5]/1000000;
     //atualize a tabela com seus valores
 
+    const oc1 = document.querySelector(".face-ocorr-1");
+    const oc2 = document.querySelector(".face-ocorr-2");
+    const oc3 = document.querySelector(".face-ocorr-3");
+    const oc4 = document.querySelector(".face-ocorr-4");
+    const oc5 = document.querySelector(".face-ocorr-5");
+    const oc6 = document.querySelector(".face-ocorr-6");
+  
+    const freq1 = document.querySelector(".face-freq-1");
+    const freq2 = document.querySelector(".face-freq-2");
+    const freq3 = document.querySelector(".face-freq-3");
+    const freq4 = document.querySelector(".face-freq-4");
+    const freq5 = document.querySelector(".face-freq-5");
+    const freq6 = document.querySelector(".face-freq-6");  
+    
+    //atualize a tabela com seus valores
 
+    oc1.innerHTML = lances[0];
+    oc2.innerHTML = lances[1];
+    oc3.innerHTML = lances[2];
+    oc4.innerHTML = lances[3];
+    oc5.innerHTML = lances[4];
+    oc6.innerHTML = lances[5];
+
+    freq1.innerHTML = (lances[0]/1000000).toFixed(2) + "%";
+    freq2.innerHTML = (lances[1]/1000000).toFixed(2) + "%";
+    freq3.innerHTML = (lances[2]/1000000).toFixed(2) + "%";
+    freq4.innerHTML = (lances[3]/1000000).toFixed(2) + "%";
+    freq5.innerHTML = (lances[4]/1000000).toFixed(2) + "%";
+    freq6.innerHTML = (lances[5]/1000000).toFixed(2) + "%";
 })
 
 /*****************************************
@@ -451,8 +471,12 @@ const insereNome = nome => {
 }
 
 const inverteNome = nome => {
-    //programe inverte nome aqui
-    return "teste"
+    let nomeInvertido = "";
+
+    for(let i = nome.length-1; i >= 0; i--){
+      nomeInvertido += nome[i];
+    }
+    return nomeInvertido;
 }
 
 // insere nome digitado
@@ -486,6 +510,19 @@ const verificaPalindromo = (palavra) => {
     //palavra[2] == palavra[palavra.length-3] ...
     // até chegar no meio; se todas iguais, é palíndromo
     // caso contrário, não
+    let contagem = 0;
+    let j = 1;
+  
+    for(i = 0; i < palavra.length; i++){
+      if(palavra[i] == palavra[palavra.length-j]){
+        contagem +=1;
+      }
+      j++;
+    }
+    if(contagem == palavra.length){
+      return true;
+    } 
+      
     return false // programe aqui
 }
 btn05.addEventListener("click", () => {
