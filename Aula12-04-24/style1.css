@@ -1,0 +1,93 @@
+:root{
+    --cor1: #a1c3da;
+    --cor2: #f7b9c2;
+    --cor3: #fdac53;
+    --cor4: #eee;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    box-sizing: border-box;
+    margin-top: 50px;
+    background-color:  var(--cor4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+#tarefa{
+    margin: 20px 0px;
+    padding: 10px;
+    min-width: 350px;
+    background-color: var(--cor4);
+    border-radius: 5px;
+    border: solid 3px var(--cor1);
+    box-shadow: 0px 10px 20px var(--cor3),
+                inset 0px 0px 5px var(--cor1);
+    offset: none;
+    outline:none;
+    transition: all .5s linear;
+    cursor: pointer;
+}
+
+#tarefa:focus, #tarefa:hover{
+    transition: all .5s linear;
+    box-shadow: inset 0px 0px 20px var(--cor3);
+}
+
+#tarefa::placeholder{
+    color: #000;
+}
+
+
+#adicionar{
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 3px var(--cor1);
+    font-weight: 600;
+    cursor: pointer;
+}
+#adicionar:hover{
+    background-color: var(--cor1);
+}
+
+ul{
+    margin:20px;
+    list-style: none;
+    background-color: #1211;
+    min-width: 350px;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+ul li{
+    margin: 10px;
+    background-color: var(--cor4);
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+.concluido{
+    background-color: var(--cor3);
+}
+
+ul li a{
+    margin-left: 10px;
+    text-decoration: none;
+    background-color: #a1c3da;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 2px var(--cor2);
+}
