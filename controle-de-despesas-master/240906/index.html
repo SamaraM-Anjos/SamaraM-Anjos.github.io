@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="script/controle.js" defer></script>
+    <script src="script/controle2.js" defer></script>
     <title>Controle de despesas</title>
   </head>
   <body>
@@ -58,6 +59,9 @@
 
           <datalist id="category-list"></datalist>
 
+          <label for="dateTransaction">Data da transação</label>
+          <input type="date" id="dateTransaction">
+
         </div>
 
         <button class="btn">Adicionar</button>
@@ -65,7 +69,34 @@
       </form>
     -->  
     </div>
+    <section>
+      <h2>Resultado por período</h2>
 
+      <div class="form">
+        <div class="datas">
+          <div class="labels">
+            <label for="inicio">Início:</label>
+            <label for="inicio">Término:</label>
+          </div>
+          <div class="inputs">
+            <input type="date" id="dataInicio">
+            <input type="date" id="dataFinal">
+          </div>
+        </div>
+        <button class="btn">Pesquisar</button>
+      </div>
+
+      <div class="detalhamento">
+        <table id="tableReceitas">
+          <th colspan="2"> Receitas</th>
+
+        </table>
+        <table id="tableDespesas">
+          <th colspan="2">Despesas</th>
+          
+        </table>
+      </div>
+    </section>
     
   </body>
 </html>

@@ -1,5 +1,5 @@
 const addBtn = document.querySelector(".btn")
-const ulTransaction = document.querySelector(".transactions")
+const ulTransaction = document.querySelector(".transactions");
 
 
 const categoryList = [{name:"Lazer", type:"despesa"},
@@ -33,7 +33,7 @@ loadCategory(categoryList, "#category-list")
 
 /**
  * Function that returns an object with form data
- * @returns value:Number, name:string, total:Number, categoryName:string, categoryType:string
+ * @returns value:Number, name:string, total:Number, categoryName:string, categoryType:string, dateTransaction: string
  */
 const getFormValues = () => {
     //dados da nova entrada
@@ -49,11 +49,14 @@ const getFormValues = () => {
     // Identificar o valor da despesa/receita
     total = (categoryType=="receita")? amount + total : total - amount
 
+    let dataTransacao = document.querySelector("#dateTransaction").value;
     return {value: amount, 
             name:transactionName, 
             total:total, 
             categoryName:categoryName, 
-            categoryType: categoryType}
+            categoryType: categoryType,
+            dateTransaction: dataTransacao
+        }
 }
 
 /**
@@ -85,7 +88,7 @@ function reloadBalance(){
     }
     else{
         lis.forEach(function(el){
-            let valor = parseFloat((el.firstChild.nextSibling.textContent).substring(4, el.firstChild.nextSibling.textContent.length));
+            let valor = parseFloat((el.firstChild.nextSibling.nextSibling.textContent).substring(4, el.firstChild.nextSibling.nextSibling.textContent.length));
             if(el.classList.contains('minus')){
                 despesa = (despesa + valor)*(-1);             
             }
@@ -104,22 +107,19 @@ function reloadBalance(){
 // Função para retornar os elementos para serem salvos no web storage
 function returnLiComponents(li){
     let textoLi = '';
-    let valorLi = (li.firstChild.nextSibling.textContent).substring(4, li.firstChild.nextSibling.textContent.length);
+    let elementoPreco = li.firstChild.nextSibling.nextSibling.textContent;
+    let valorLi = (elementoPreco).substring(4, elementoPreco.lenght);
     let tipoTransacao = li.classList.contains("plus") ? "plus" : "minus";
     let operador = tipoTransacao == "plus" ? "+" : "-";
-    if(operador == "+"){
-        textoLi = (li.textContent).split('+', 1);
-    }
-    else{
-       textoLi = (li.textContent).split('-', 1);
-    }
-    textoLi = textoLi[0].replace('\n', '');
+    let data = (li.firstChild.nextSibling).textContent;
+    textoLi = (li.firstChild.textContent);
     valorLi = parseFloat(valorLi);
     return [
         tipoTransacao,
         textoLi,
         operador,
-        valorLi
+        valorLi,
+        data
     ]
 }
 // SALVANDO A LISTA DE GASTOS NO WEB STORAGE
@@ -133,16 +133,15 @@ const saveTransactions = () => {
 }
 
 // => CRIAR UMA FUNÇÃO PARA RETORNAR UM ELEMENTO LI
-const liCreator = (transactionClass, textoLi, operador, valor) =>{
-    return `<li class="${transactionClass}">
-        ${textoLi} <span>${operador}${stringToCurrency(valor)}</span><button class="delete-btn">x</button></li>`
+const liCreator = (transactionClass, textoLi, operador, valor, dateTransaction) =>{
+    return `<li class="${transactionClass}"><span>${textoLi}</span><span>${dateTransaction}</span><span>${operador}${stringToCurrency(valor)}</span><button class="delete-btn">x</button></li>`
 }
 // RETORNANDO COM OS DADOS SALVOS PARA A TELA
 const loadTransactions = () =>{
-    let transactions = JSON.parse(localStorage.getItem('transactions'));
+    let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
     transactions.forEach((el) =>{
-        ulTransaction.innerHTML += liCreator(el[0], (el[1]).trim(), el[2], el[3]);
-        reloadBalance(el[0]);
+        ulTransaction.innerHTML += liCreator(el[0], (el[1]), el[2], el[3], el[4]);
+        reloadBalance();
     });
 }
 
@@ -167,7 +166,7 @@ const loadBalance = () => {
     //adicionar a transação na lista #transactions
         const transactionClass = (formData.categoryType=="receita")?"plus": "minus";
         const operator = (formData.categoryType=="receita")?"+": "-";
-        ulTransaction.innerHTML += liCreator(transactionClass, formData.name, operator, formData.value);
+        ulTransaction.innerHTML += liCreator(transactionClass, formData.name, operator, formData.value, formData.dateTransaction);
      
     // salvar as transações no localStorage
     clearForm()

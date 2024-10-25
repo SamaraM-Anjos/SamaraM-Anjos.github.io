@@ -79,7 +79,8 @@ label {
 }
 
 input[type='text'],
-input[type='number'] {
+input[type='number'],
+input[type='date'] {
   border: 1px solid #dedede;
   border-radius: 2px;
   display: block;
@@ -149,4 +150,64 @@ input[type='number'] {
 
 .transactions li:hover .delete-btn {
   opacity: 1;
+}
+
+section{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section .form{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form .datas{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.form .datas .labels label{
+  margin: 10px 5px;
+  text-align: center;
+}
+.form .datas .inputs input{
+  margin: 5px 0px;
+}
+
+.detalhamento{
+  padding: 50px;
+  width: 100vw;
+}
+
+.detalhamento table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.detalhamento table th{
+  background-color: #f4f4f4;
+  text-align: left;
+  padding: 10px;
+}
+.detalhamento table td{
+  padding: 10px;
+  border: solid 1px #ddd;
+}
+.detalhamento table tr:nth-child(even){
+  background-color:cadetblue;
+}
+
+.detalhamento table td.date{
+  width: 100px;
+}
+.detalhamento table td.descricao{
+  width: 300px;
+  text-overflow:ellipsis;
 }
