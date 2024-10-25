@@ -71,7 +71,7 @@ const currencyToNumber = value => parseFloat(("" + value).substring(4,value.leng
  */
 const stringToCurrency = value => `R$ ${value.toFixed(2)}`
 
-function reloadBalance(classList = 'minus'){
+function reloadBalance(){
     let saldoAtual = 0;
     let receita = 0;
     let despesa = 0;
