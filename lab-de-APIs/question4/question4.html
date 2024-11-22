@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 4</title>
+    <script src="./script.js" defer></script>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>📚 Escalbooks 📚</h1>
+    <p>Doe um livro ou pegue um emprestado ✨</p>
+    
+	<section id="secAddBook">
+		<h3>Cadastre um livro</h3>
+		<p>👉 Aqui nessa seção será possível que você, usuário, adicione um livro ao banco de dados da biblioteca. 👈</p>
+		
+		<div class="formAddBook">
+			<div class="input">
+				<label for="titleA">Nome do livro:</label>
+				<input type="text" id="titleA" name="title" placeholder="Digite o nome do livro">
+			</div>
+			
+			<div class="input">
+				<label for="author">Nome do autor:</label>
+				<input type="text" id="author" name="author" placeholder="Digite o nome do autor">
+			</div>
+			
+			<button id="addBook">Adicionar Livro</button>
+		</div>
+		<p id="addBookP"></p>
+	</section>
+
+	<section id="secBorrowBook">
+		<h3>Empréstimo de livros:</h3>
+		<p>👉 Se interessou por um livro? Nessa sessão você pode digitar o nome do livro que você quer emprestado. Caso
+		ele esteja disponível, você poderá pegá-lo. 👈</p>
+		<div class="borrowBookForm">
+			<div class="input">
+				<label for="titleB">Nome do livro:</label>
+				<input type="text" id="titleB" placeholder="Digite o nome do livro que você quer">
+			</div>
+			<button id="borrowBook">Pegar livro emprestado</button>
+		</div>
+		<p id="borrowBookP"></p>
+	</section>
+    
+    <section id="secReturnBook">
+	    <h3>Devolver um livro:</h3>
+		<p>👉 Aqui nessa seção será possível que você, usuário, devolva um livro ao banco da biblioteca. 👈</p>
+	    <div class="returnBookForm">
+		    <div class="input">
+			    <label for="titleR">Nome do livro:</label>
+			    <input type="text" id="titleR" placeholder="Digite o nome do livro">
+		    </div>
+		    
+		    <button id="returnBook">Devolver livro</button>
+	    </div>
+		<p id="returnBookP"></p>
+	    
+	    </section>
+    <hr>
+	    <section id="borrowedBooksQuantity">
+		   <h3>Quantidade total de empréstimos de livros</h3>
+		   <p>👉 Aqui nessa seção será possível que você, usuário, visualize o total de empréstimos realizados. 👈</p>
+		   
+		   <p id="borrowedBooksQuantityP">Quantidade de empréstimos totais: 0</p>
+	    </section>
+	    <hr>
+	    <section id="secAvailableBooks">
+		    <h3>Livros que estão disponíveis:</h3>
+		    <p>👉 Aqui nessa seção será possível que você, usuário, veja os livros que estão disponíveis para empréstimo.
+			    👈</p>
+		    <table id="availableBooksTable">
+			    <thead>
+			    <tr>
+				    <td colspan="2">Lista dos livros disponíveis do nosso banco de livros:</td>
+			    </tr>
+			    <tr>
+				    <td>📖 Nome do livro:</td>
+				    <td>✍️ Autor do livro:</td>
+			    </tr>
+			    </thead>
+			    <tbody id="availableBooksTableBody">
+			    
+			    </tbody>
+			    <tfoot>
+			    <tr>
+				    <td colspan="2" style="text-align: center">Made by Samara ♥️</td>
+			    </tr>
+			    </tfoot>
+		    </table>
+	    </section>
+    <hr>
+    <section id="secBorrowedBooks">
+	    <h3>Livros que estão emprestados:</h3>
+	    <p>👉 Aqui nessa seção será possível que você, usuário, veja os livros que estão emprestados. 👈</p>
+	    <table id="borrowedBooksTable">
+		    <thead>
+			    <tr>
+				    <td colspan="2">Lista dos livros emprestados do nosso banco de livros:</td>
+			    </tr>
+		        <tr>
+		            <td>📖 Nome do livro:</td>
+		            <td>✍️ Autor do livro:</td>
+		        </tr>
+		    </thead>
+		    <tbody id="borrowedBooksTableBody">
+		    
+		    </tbody>
+		    <tfoot>
+		        <tr>
+			        <td colspan="2" style="text-align: center">Made by Samara ♥️</td>
+		        </tr>
+		    </tfoot>
+	    </table>
+    </section>
+    <hr>
+	<section id="secAllBooks">
+		<h3>Todos os livros da biblioteca:</h3>
+		<p>👉 Aqui nessa seção será possível que você, usuário, veja todos os livros, emprestados ou não, do banco da
+			biblioteca. 👈</p>
+		
+		<table id="allBooksTable">
+			<thead>
+			<tr>
+				<td colspan="2">Lista de todos os livros do nosso banco de livros:</td>
+			</tr>
+			<tr>
+				<td>📖 Nome do livro:</td>
+				<td>✍️ Autor do livro:</td>
+			</tr>
+			</thead>
+			<tbody id="allBooksTableBody">
+			
+			</tbody>
+			<tfoot>
+			<tr>
+				<td colspan="2" style="text-align: center">Made by Samara ♥️</td>
+			</tr>
+			</tfoot>
+		</table>
+	</section>
+</body>
+</html>

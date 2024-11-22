@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 3</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <h1>OpenWeather API</h1>
+
+    <div class="inputs">
+        <label for="cidade">Cidade:</label>
+        <input type="text" name="cidade" id="cidade" placeholder="Digite o nome da cidade">
+
+        <label for="uf">País:</label>
+        <input type="text" name="pais" id="pais" placeholder="Digite o país (ex: BR)">
+
+        <button id="pesquisar">Pesquisar Clima</button>
+    </div>
+
+    <div id="resposta">
+        
+    </div>
+    <!-- <div class="card">
+        <div class="icons">
+
+        </div>
+        <div class="info">
+            <h4>Nome do local pesquisado</h4>
+
+            <ul class="clima">
+                <li>descricao</li>
+                <li>Temperatura:
+                    <ul class="temperatura">
+                        <li>Atual: dado</li>
+                        <li>sensacaoTermica: </li>
+                        <li>TempMin: </li>
+                        <li>TempMax: </li>
+                    </ul>
+                </li>
+                <li>umidade</li>
+                <li>velocidadeDoVento</li>
+            </ul>
+        </div>
+    </div> -->
+
+    <h2>Locais pesquisados e filtrados: (temperatura > 35ºC ou temperatura < 5ºC)</h2>
+
+    <div class="inputs">
+        <button id="filtrar">Filtrar</button>
+    </div>
+
+    <ul id="locaisFiltrados">
+        
+    </ul>
+</body>
+</html>
