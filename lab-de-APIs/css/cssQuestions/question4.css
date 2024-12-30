@@ -1,0 +1,244 @@
+@import url('../fonts.css');
+
+:root{
+    --c-salmon: rgb(255, 110, 97);
+    --c-red: rgb(249, 67, 70);
+    --c-purple: rgb(191, 100, 201);
+    --c-beje: rgb(221, 170, 141);
+    --c-yellow: rgb(241, 184, 59);
+    --c-orange: rgb(230, 141, 45);
+    --c-cream: rgb(224, 209, 164); /*rgb(214, 200, 168)*/
+    --c-white: rgb(255, 255, 255);
+    --c-dark-blue: rgb(26, 26, 46);
+    --c-light-blue: rgb(112, 134, 215);
+    --c-ligher-blue: rgb(195, 231, 255);
+    /* --c-light-blue: rgb(86, 119, 143); */
+    --c-blue: rgb(61, 90, 153);
+    --c-cyan: rgb(0, 204, 255);
+    --c-light-green: rgb(181, 218, 164);
+    --c-neon-green: rgb(102, 255, 102);
+    --c-pink: rgb(255, 51, 102);
+    --c-black-input: rgba(142, 142, 142, 0.35);
+
+    --font-reg: 'JetBrains Regular';
+    --font-bold: 'JetBrains Bold';
+}
+
+*{
+    font-family: var(--font-reg);
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    cursor: url('../cursors/blue_shyguy.cur'), auto;
+}
+
+body, .hero_section,
+.section_header, section,
+.form, .form .input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--c-dark-blue);
+    scroll-behavior: smooth;
+}
+
+section {
+    width: 85dvw;
+    margin: 25px 0px;
+    padding-bottom: 10px;
+    background-color: var(--c-white);
+    border:  solid 2px;
+}
+section .resp{
+    margin: 30px 0px;
+    padding: 15px;
+    text-align: center;
+}
+
+hr{
+    width: 90%;
+    height: 4px;
+    border: none;
+    background-color: var(--c-cream);
+}
+
+.hero_section{
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--c-orange);
+    color: var(--c-white);
+}
+
+#secAddBook {
+    border-color: var(--c-cream);
+}
+
+#secBorrowBook{
+    border-color: var(--c-purple);
+}
+#secReturnBook{
+    border-color: var(--c-beje);
+}
+#borrowedBooksQuantity{
+    border-color: var(--c-salmon);
+}
+#secAvailableBooks{
+    border-color: var(--c-yellow);
+}
+#secBorrowedBooks{
+    border-color: var(--c-red);
+}
+#secAllBooks{
+    border-color: var(--c-ligher-blue);
+}
+
+.section_header{
+    width: 100%;
+    min-height: 100px;
+    margin: 0px 0px 20px 0px;
+    padding: 20px 10px;
+    text-align: center;
+}
+.section_header p{
+    margin-top: 10px;
+    padding: 10px;
+}
+#secAddBook .section_header{
+    background-color: var(--c-cream);
+}
+
+#secBorrowBook .section_header{
+    background-color: var(--c-purple);
+}
+
+#secReturnBook .section_header{
+    background-color: var(--c-beje);
+}
+#borrowedBooksQuantity .section_header{
+    background-color: var(--c-salmon);
+}
+#secAvailableBooks .section_header{
+    background-color: var(--c-yellow);
+}
+#secBorrowedBooks .section_header{
+    background-color: var(--c-red);
+}
+#secAllBooks .section_header{
+    background-color: var(--c-ligher-blue);
+}
+
+.form{
+    width: 350px;
+    margin-top: 15px;
+    padding: 10px;
+    justify-content: center;
+    border: solid 0.8px var(--c-black-input);
+    border-radius: 3px;
+    box-shadow: 0px 3px 0px var(--c-dark-blue);
+}
+
+.form .input{
+    width: 100%;
+    margin-bottom: 5px;
+    font-family: var(--font-bold);
+}
+.form .input label{
+    align-self: start;
+    font-family: var(--font-bold);
+    margin: 10px 0px 0px 5px;
+}
+
+.form .input input{
+    width: 100%;
+    height: 35px;
+    padding: 0px 7px;
+    outline: none;
+    border: none;
+    border: solid 1px var(--c-black-input);
+    border-radius: 5px;
+    background-color: transparent;
+    caret-color: var(--c-orange-shadow);
+    cursor: url('../cursors/arrowhead-rounded-outline.png'), auto;
+    transition: background-color .4s ease-out, border-color .4s ease;
+}
+
+.form .input input:hover,
+.form .input input:focus{
+    background-color: var(--c-black-input);
+    border-color: var(--c-cream);
+    box-shadow: none;
+}
+.form button{
+    width: 200px;
+    height: 35px;
+    margin-top: 10px;
+    font-weight: 600;
+    background-color: var(--c-orange);
+    border: solid 2px var(--c-dark-blue);
+    box-shadow: 2px 3px 0px var(--c-dark-blue);
+    cursor: url('../cursors/hand-pointer.png'), auto;
+    transition: box-shadow .3s ease-in-out, border-color .3s ease, background-color .3s ease-in;
+}
+.form button:hover,
+.form button:focus {
+    box-shadow: 0px 0px 0px;
+    border-color: var(--c-yellow);
+    background-color: var(--c-yellow);
+}
+
+section table{
+    width: 95%;
+    padding: 10px;
+    text-align: center;
+    table-layout: fixed;
+    border: solid 1px var(--c-black-input);
+    border-radius: 5px;
+}
+section table thead tr td{
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: var(--c-neon-green);
+}
+section table tbody tr td{
+    padding: 5px;
+    border: solid 1px var(--c-black-input);
+    border-radius: 5px;
+    /* background-color: aqua; */
+}
+section table tbody tr:nth-child(odd){
+    background-color: var(--c-black-input);
+}
+section table tbody tr:hover{
+    transform: scale(1.01);
+}
+
+section table tfoot tr td{
+    border-radius: 2px;
+    background-color: var(--c-light-blue);
+}
+
+@media screen and (min-width: 520px){
+    .hero_section {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    section{
+        width: 100dvw;
+    }
+    .form{
+        width: 95%;
+    }
+}

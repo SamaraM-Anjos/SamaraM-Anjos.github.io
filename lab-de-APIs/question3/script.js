@@ -46,7 +46,7 @@ function returnIcon(icon, time, tamImg = '4x') {
 
 function gerarCard(icon, nomeDoLocal, descricao, tempAtual, sensTermica, umidade, velVento, hora){
         return `<div class="card"> 
-                    <div class="icons">
+                    <div class="icon">
                         ${returnIcon(icon, hora)}
                     </div>
                     <div class="info">
@@ -73,8 +73,13 @@ function gerarLiFiltrada (nomeDoLocal, time, tempAtual, icon) {
                     <li>${nomeDoLocal}</li>
                     <li>${tempAtual}ºC</li>
                 </ul>
-            </li>`
+            </li>`;
 }
+
+const salvarLocalStorage = (dados) => {
+    localStorage.clear();
+    localStorage.setItem('cidadesPesquisadas', JSON.stringify(dados));
+};
 
 let cidadesPesquisadas = [];
 
@@ -105,14 +110,26 @@ document.querySelector('#pesquisar').addEventListener("click", async function ()
             'velVento': velVento,
             'hora': hora
         });
-
-    document.querySelector("#cidade").value = '';
+        document.querySelector("#cidade").value = '';
+        salvarLocalStorage(cidadesPesquisadas);
 });
 
 document.getElementById("filtrar").addEventListener('click', function(){
     let ulFiltrada = document.getElementById('locaisFiltrados');
-    let cidadesFiltradas = cidadesPesquisadas.filter((el) => el.tempAtual > 35 || el.tempAtual < 5);
-    cidadesFiltradas.forEach(el => {
-        ulFiltrada.innerHTML += gerarLiFiltrada(el.cidade, el.hora, el.tempAtual, el.icon);
-    });
+    let cidadesFiltradas = cidadesPesquisadas.filter((el) => el.tempAtual > 35 || el.tempAtual > 5);
+    if(cidadesFiltradas.length === 0) {
+        alert ('Nenhuma das cidades pesquisadas está dentro das codições especificadas');
+    }
+    else{
+        ulFiltrada.innerHTML = '';
+        cidadesFiltradas.forEach(el => {
+            ulFiltrada.innerHTML += gerarLiFiltrada(el.cidade, el.hora, el.tempAtual, el.icon);
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () =>{
+    if(localStorage.getItem('cidadesPesquisadas') !== null){
+        cidadesPesquisadas = JSON.parse(localStorage.getItem('cidadesPesquisadas'));
+    }
 });

@@ -11,4 +11,7 @@ const resp = async  () => {
     return resposta;
 };
 
-resp();
+document.querySelector("#gerarFrase").addEventListener('click', () => {
+    const p = document.querySelector("#frase");
+    console.log(resp());
+});

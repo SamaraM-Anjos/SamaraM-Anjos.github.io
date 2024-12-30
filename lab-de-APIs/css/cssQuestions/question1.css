@@ -1,0 +1,113 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #1e3a76;
+}
+
+
+h1 {
+    font-size: 2rem;
+    color: #4b6faa;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Formulário */
+.inputs {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.colunmInput {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #1e3a76;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 12px 15px;
+    border: 2px solid #4b6faa;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    color: #1e3a76;
+    background-color: #f9f9f9;
+}
+
+input::placeholder {
+    color: #87a9e8; /* Placeholder azul */
+}
+
+input:focus, select:focus {
+    border-color: #f6b83c; /* Destaque ao focar */
+}
+
+/* Botão */
+.buttonInput button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f26969;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+}
+
+.buttonInput button:hover {
+    background-color: #d85656;
+    transform: scale(1.02);
+}
+
+/* Resposta */
+#resposta {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #4b6faa;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .inputs {
+        padding: 20px;
+    }
+
+    input, select {
+        font-size: 0.9rem;
+    }
+
+    .buttonInput button {
+        font-size: 0.9rem;
+    }
+}

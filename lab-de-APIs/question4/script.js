@@ -228,8 +228,13 @@ function loadBorrowedBooks (books) {
 
 const borrowedBooksQuantity = books => books.reduce((total, book) => total + book.amountOfLoans, 0);
 
-// Função para pegar o novo livro -> TEM QUE ADICIONAR A FUNÇÃO PARA A CADA LIVRO ADICIONADO ATUALIZAR A LISTAGEM
-// DOS LIVROS
+/**
+ * - Função para salvar os livros no localStorage
+ */
+const salvarLocalStorage = (dados) => {
+    localStorage.clear();
+    localStorage.setItem('livrosDaBiblioteca', JSON.stringify(dados));
+};
 
 document.querySelector("#addBook").addEventListener('click', function(){
     const bookTitleEl = document.querySelector("#titleA");
@@ -242,6 +247,7 @@ document.querySelector("#addBook").addEventListener('click', function(){
     if(bookTitle !== '' && bookAuthor !== ''){
         if(searchBook === undefined){
             addBook(bookTitle, bookAuthor);
+            salvarLocalStorage(books);
             p.innerHTML = `O livro ${bookTitle} foi adicionado ao banco de livros. Muito obrigada pela contribuição!`;
             loadAllBooks(books);
             loadAvailableBooks(books);
@@ -267,6 +273,7 @@ document.querySelector("#borrowBook").addEventListener('click', () =>{
         p.innerHTML = borrowBook(books, book);
         loadBorrowedBooks(books);
         loadAvailableBooks(books);
+        salvarLocalStorage(books);
         p2.innerHTML = `Quantidade de empréstimos totais: ${borrowedBooksQuantity(books)}`;
     }
     else{
@@ -284,9 +291,21 @@ document.querySelector("#returnBook").addEventListener('click', () =>{
         p.innerHTML = returnBook(books, book);
         loadBorrowedBooks(books);
         loadAvailableBooks(books);
+        salvarLocalStorage(books);
     }
     else{
         p.innerHTML = 'Digite o título do livro que você quer devolver, por favor.';
     }
     bookTitleEl.value = '';
+});
+
+document.addEventListener('DOMContentLoaded', () =>{
+    if(localStorage.getItem('livrosDaBiblioteca') !== null){
+        books = JSON.parse(localStorage.getItem('livrosDaBiblioteca'));
+        const p2 = document.querySelector("#borrowedBooksQuantityP");
+        p2.innerHTML = `Quantidade de empréstimos totais: ${borrowedBooksQuantity(books)}`;
+        loadAllBooks(books);
+        loadAvailableBooks(books);
+        loadBorrowedBooks(books);
+    }
 });
