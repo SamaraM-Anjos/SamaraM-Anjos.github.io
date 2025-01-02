@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --c-light-green: #7ae582;
+    --c-dark-green: #0b525b;
+    --c-lime: #baff29;
+    --c-pastel-purple: #e0aaff;
+    --c-pastel-cream: #ffd6ff;
+    --c-pastel-blue: #bbd0ff;
+    --c-light-blue: #6290c3;
+    --c-dark-blue: #18314f; 
+    --c-gray: #c0c0c0;
+    --c-dark-red: #9e2a2b;
+    --c-light-red: #ef233c;
+    --c-orange: #ff6700;
+    --c-pastel-orange: #f7d08a;
+    --c-pastel-yellow: #fcf6bd;
+    --c-yellow: #f3de2c;
+    --c-salmon: #e56b6f;
+    --c-black: #151515;
+    --c-white: #f4f1de;
+
+    --font-title: 'Playfair Display', serif;
+    --font-text: "Poppins", serif;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--font-text);
+}
+
+h1, h1 span{
+    font-family: var(--font-title);
+}
+h1 {
+    font-size: 3rem;
+}
+h1 span{
+    font-size: 2rem;
+}
+
+body {
+    width: 100vw;
+    background-color: var(--c-pastel-cream);
+    overflow-x: hidden;
+    cursor: url('./cursors/HelloKittynormalselect.cur'), auto;
+}
+
+body, section, .hero_section, .form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+hr{
+    width: 90%;
+    border: solid 1px var(--c-black);
+}
+
+.hero_section{
+    width: 100%;
+    height: 350px;
+    padding: 40px;
+    justify-content: center;
+    background-color: var(--c-salmon);
+    color: var(--c-white);
+    text-align: center;
+}
+
+section {
+    width: 90vw;
+    margin: 50px 0px;
+    padding: 0px 0px 20px 0px;
+    background-color: var(--c-white);
+    border: solid .3px var(--c-black);
+    border-radius: 7px;
+}
+
+.section_header{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: var(--c-black);
+}
+#cadastrarLivro .section_header{
+    color: var(--c-pastel-purple);
+}
+#atualizarLivro .section_header{
+    color: var(--c-pastel-blue);
+}
+#listarLivros .section_header{
+    color: var(--c-pastel-yellow);
+}
+#deletarLivro .section_header{
+    color: var(--c-pastel-orange);
+}
+
+.form{
+    width: 350px;
+    margin: 15px 0px;
+    padding: 10px;
+    justify-content: center;
+    border: solid .95px var(--c-black);
+    border-radius: 3px;
+    box-shadow: 0px 3px 0px var(--c-black);
+    background-color: var(--c-pastel-yellow);
+}
+
+.form .input{
+    width: 100%;
+    margin-bottom: 5px;
+}
+.form .input label{
+    align-self: start;
+    margin: 10px 0px 0px 5px;
+    font-weight: 600;
+}
+
+.form .input input{
+    width: 100%;
+    height: 35px;
+    padding: 0px 7px;
+    outline: none;
+    border: none;
+    border: solid 1px var(--c-black);
+    border-radius: 5px;
+    background-color: var(--c-white);
+    caret-color: var(--c-salmon);
+    cursor: url('./cursors/HelloKittytextselect.cur'), auto;
+    transition: background-color .4s ease-out;
+}
+.form .input input::placeholder{
+    color: var(--c-black);
+}
+
+#cadastrarLivro .form .input input:hover,
+#cadastrarLivro .form .input input:focus{
+    background-color: var(--c-pastel-purple);
+}
+#atualizarLivro .form .input input:hover,
+#atualizarLivro .form .input input:focus{
+    background-color: var(--c-pastel-blue);
+}
+#deletarLivro .form .input input:hover,
+#deletarLivro .form .input input:focus {
+    background-color: var(--c-pastel-orange);
+}
+
+.form button{
+    width: 200px;
+    height: 35px;
+    margin-top: 10px;
+    font-weight: 600;
+    background-color: var(--c-light-green);
+    border: solid 2px var(--c-light-green);
+    box-shadow: 3px 3px 0px var(--c-black);
+    transition: box-shadow .3s ease-in-out, border-color .26s ease, background-color .3s ease;
+    text-transform: uppercase;
+    cursor: url('./cursors/normal.cur'), auto;
+}
+.form button:hover {
+    box-shadow: 0px 0px 0px;
+    background-color: var(--c-pastel-orange);
+    border-color: var(--c-black);
+}
+
+#booksTable {
+    width: 95%;
+    margin: 20px 0px;
+    text-align: center;
+    table-layout: fixed;
+    border: solid 1px var(--c-black);
+    border-radius: 5px;
+}
+#booksTable thead {
+    background-color: var(--c-gray);
+}
+#booksTable thead th {
+    border-bottom: solid .8px var(--c-black);
+}
+
+#booksTable tbody tr:nth-child(even){
+    background-color: var(--c-pastel-blue);
+}
+
+#booksTable th, #booksTable td {
+    overflow-x: hidden;
+    padding: 2px;
+}
+
+@media screen and (min-width: 520px){
+    .hero_section {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .form{
+        width: 95%;
+    }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Biblioteca Escalbooks - CRUD System</title>
+</head>
+<body>
+    <div class="hero_section">
+        <h1><span>BIBLIOTECA</span><br>ESCALBOOKS</h1>
+        <p>CRUD System - Cadastro, remoção e alteração de informações dos livros</p>
+    </div>
+
+    <section id="cadastrarLivro">
+        <div class="section_header">
+            <h2>Cadastrar Livros</h2>
+            <p>Preencha os campos e cadestre um novo livro</p>
+        </div>
+
+        <div class="formAddBook form">
+
+			<div class="input">
+				<label for="titleA">Nome do livro:*</label>
+				<input type="text" id="titleA" name="title" placeholder="Digite aqui..." required>
+			</div>
+			
+			<div class="input">
+				<label for="author">Nome do autor:*</label>
+				<input type="text" id="authorA" name="author" placeholder="Digite aqui..." required>
+			</div>
+
+            <div class="input">
+				<label for="anoPublicacao">Ano de publicação:*</label>
+				<input type="date" id="anoPublicacaoA" placeholder="Digite aqui..." required>
+			</div>
+			
+			<button id="addBook">Adicionar Livro</button>
+		</div>
+		<p id="addBookP" class="resp"></p>
+    </section>
+
+    <hr>
+
+    <section id="atualizarLivro">
+        <div class="section_header">
+            <h2>Atualizar dados de um livro</h2>
+            <p>Preencha os campos abaixo para alterar os dados de algum livro</p>
+        </div>
+
+        <div class="formUpdateBook form">
+            <div class="input">
+				<label for="idU">Id do livro:*</label>
+				<input type="number" id="idU" placeholder="Digite aqui..." required>
+			</div>
+
+			<div class="input">
+				<label for="titleU">Nome do livro:</label>
+				<input type="text" id="titleU" name="title" placeholder="Digite aqui...">
+			</div>
+			
+			<div class="input">
+				<label for="authorU">Nome do autor:</label>
+				<input type="text" id="authorU" name="author" placeholder="Digite aqui...">
+			</div>
+
+            <div class="input">
+				<label for="anoPublicacaoU">Ano de publicação:</label>
+				<input type="date" id="anoPublicacaoU" placeholder="Digite aqui...">
+			</div>
+			
+			<button id="updateBook">Atualizar Livro</button>
+		</div>
+		<p id="updateBookP" class="resp"></p>
+
+    </section>
+
+    <hr>
+
+    <section id="deletarLivro">
+        <div class="section_header">
+            <h2>Deletar um livro</h2>
+            <p>Preencha os campos abaixo para deletar algum livro</p>
+        </div>
+
+        <div class="formDeleteBook form">
+            <div class="input">
+				<label for="idD">Id do livro:*</label>
+				<input type="number" id="idD" placeholder="Digite aqui..." required>
+			</div>
+			
+			<button id="deleteBook">Deletar Livro</button>
+		</div>
+		<p id="deleteBookP" class="resp"></p>
+
+    </section>
+
+    <hr>
+
+    <section id="listarLivros">
+        <div class="section_header">
+            <h2>Lista de livros</h2>
+            <p>Aqui você encontrará uma tabela contendo todos os livros disponíveis</p>
+        </div>
+
+        <table id="booksTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Autor</th>
+                    <th>Ano de Publicação</th>
+                </tr>
+            </thead>
+            <tbody id="allBooksAvailable">
+                
+                <!-- Aqui será inserido o conteúdo da tabela -->
+            </tbody>
+            <tfoot>
+                <tr>
+			        <td colspan="4" style="text-align: center">Feito por Samara ♥️</td>
+		        </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <!-- <script src="./classes.js"></script> -->
+    <script type="module"  src="./main.js"></script>
+</body>
+</html>
