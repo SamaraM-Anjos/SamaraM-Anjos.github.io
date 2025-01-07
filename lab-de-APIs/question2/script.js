@@ -19,7 +19,7 @@ const salvarLocalStorage = (dados) => {
 
 document.querySelector("#procurar").addEventListener("click", async () =>{
     let tituloFilme = document.getElementById("nomeFilme").value;
-    let url = `http://www.omdbapi.com/?apikey=${api_key}&t=${tituloFilme}`;
+    let url = `http://www.omdbapi.com/?apikey=${api_key}&t=${tituloFilme}`; 
     let requisicao = await request(url);
     let ulFilme = document.querySelector("#filme");
     filmes.push(requisicao);
