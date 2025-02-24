@@ -1,4 +1,3 @@
-let api_key = '8a7d6dd3';
 
 let filmes = [];
 

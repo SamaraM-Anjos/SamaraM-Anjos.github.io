@@ -1,5 +1,4 @@
-const chaveApi = 'ea247ffd31aec0bf4ade4cbc';
-let url = 'https://v6.exchangerate-api.com/v6/ea247ffd31aec0bf4ade4cbc/latest/USD';
+
 
 const converteBtn = document.querySelector("#converter");
 

@@ -1,4 +1,3 @@
-const apiKey = '7cbfb46cc08a495c68f01daf47b82629';
 
 async function request (url) {
     let request = await fetch(url);
